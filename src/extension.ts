@@ -1,23 +1,35 @@
 import * as vscode from 'vscode'; // VSCode Extensibility API
 
+// TODO: https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample 
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "vscode-wdx-development-extension" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
 	// https://code.visualstudio.com/api/get-started/your-first-extension
-	let disposable = vscode.commands.registerCommand('vscode-wdx-development-extension.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
+	const disposable = vscode.commands.registerCommand('vscode-wdx-development-extension.helloWorld', () => {
 		vscode.window.showInformationMessage('Hello World from VSCode-WDX-Development-Extension!');
-	});
 
+		// https://stackoverflow.com/a/53919833/4861760
+		if(vscode.workspace.workspaceFolders !== undefined) {
+			let wf = vscode.workspace.workspaceFolders[0].uri.path ;
+			let f = vscode.workspace.workspaceFolders[0].uri.fsPath ; 
+			const message = `YOUR-EXTENSION: folder: ${wf} - ${f}` ;
+			vscode.window.showInformationMessage(message);
+			if ( vscode.window.activeTextEditor){
+				const currentOpenFile = vscode.window.activeTextEditor.document.fileName;
+				vscode.window.showInformationMessage( currentOpenFile );
+			}
+		} 
+		else {
+
+			const message = "YOUR-EXTENSION: Working folder not found, open a folder an try again" ;		
+			vscode.window.showErrorMessage(message);
+		}
+
+	});
 	context.subscriptions.push(disposable);
 
 	// https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample
@@ -37,9 +49,14 @@ export function activate(context: vscode.ExtensionContext) {
 			});
 		}
 	});
-
 	context.subscriptions.push(reverseWordDisposable);
 
+	// https://github.com/mennan/vscode-contextmenu-sample/tree/master
+	const disposableContext = vscode.commands.registerCommand('vscode-wdx-development-extension.contextMenu', function () {
+		vscode.window.showInformationMessage('Hello World from Context!');
+	});
+
+	context.subscriptions.push(disposableContext);
 }
 
 // This method is called when your extension is deactivated

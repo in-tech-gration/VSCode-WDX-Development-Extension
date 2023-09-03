@@ -20,8 +20,20 @@
       {
         "command": "vscode-wdx-development-extension.reverseWord",
         "title": "WDX:Reverse Word"
+      },
+      {
+        "command": "vscode-wdx-development-extension.contextMenu",
+        "title": "WDX:Context Menu"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "group": "navigation",
+          "command": "vscode-wdx-development-extension.contextMenu"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
