@@ -15,7 +15,11 @@
     "commands": [
       {
         "command": "vscode-wdx-development-extension.helloWorld",
-        "title": "Hello World"
+        "title": "WDX:Hello World"
+      },
+      {
+        "command": "vscode-wdx-development-extension.reverseWord",
+        "title": "WDX:Reverse Word"
       }
     ]
   },
