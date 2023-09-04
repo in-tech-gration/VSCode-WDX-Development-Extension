@@ -1,7 +1,11 @@
 {
   "name": "vscode-wdx-development-extension",
-  "displayName": "VSCode-WDX-Development-Extension",
+  "displayName": "WDX Development Package",
+  "publisher": "kostasx",
   "description": "VSCode Extension for developers working on the WDX Platform",
+  "repository": {
+    "url": "https://github.com/in-tech-gration/VSCode-WDX-Development-Extension"
+  },
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.81.0"
