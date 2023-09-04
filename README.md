@@ -1,12 +1,10 @@
 # WDX Development Pack
 
+**Work in progress...**
+
 ## Features
 
 - HTML to Markdown conversion _(forked from the [vscode-html-to-markdown](https://github.com/Wtango/vscode-html-to-markdown) extension by [Tango Wu](https://github.com/Wtango))_
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
 ## Available Commands
 
