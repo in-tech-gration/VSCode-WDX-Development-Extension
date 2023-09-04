@@ -4,6 +4,7 @@ import * as glob from 'glob';
 
 export function run(): Promise<void> {
 	// Create the mocha test
+	// @ts-ignore
 	const mocha = new Mocha({
 		ui: 'tdd',
 		color: true
@@ -24,6 +25,7 @@ export function run(): Promise<void> {
 		testFileStream.on("end", () => {
 			try {
 				// Run the mocha test
+				// @ts-ignore
 				mocha.run(failures => {
 					if (failures > 0) {
 						e(new Error(`${failures} tests failed.`));

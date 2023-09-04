@@ -1,8 +1,8 @@
 import * as vscode from 'vscode';
+// @ts-ignore
 import TurndownService from 'turndown';
 
 import { log } from './logger';
-
 
 export class Html2MarkdownPreviewer {
 
