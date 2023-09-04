@@ -1,5 +1,7 @@
 import * as vscode from 'vscode'; // VSCode Extensibility API
 
+import { Html2MarkdownPreviewer } from './previewer';
+
 // TODO: https://github.com/microsoft/vscode-extension-samples/tree/main/custom-editor-sample 
 
 // This method is called when your extension is activated
@@ -57,6 +59,18 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposableContext);
+
+	// HTML-to-MARKDOWN
+	const previewer = new Html2MarkdownPreviewer(context);
+
+	let disposableHTML2Markdown = vscode.commands.registerCommand('vscode-wdx-development-extension.html2markdown', () => {
+		// The code you place here will be executed every time your command is executed
+		// Display a message box to the user
+		previewer.showPreviewer();
+	});
+
+	context.subscriptions.push(disposableHTML2Markdown);
+
 }
 
 // This method is called when your extension is deactivated

@@ -4,17 +4,17 @@ This is the README for your extension "vscode-wdx-development-extension". After 
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- HTML to Markdown conversion _(forked from the [vscode-html-to-markdown](https://github.com/Wtango/vscode-html-to-markdown) extension by [Tango Wu](https://github.com/Wtango))_
 
 ## Requirements
 
 If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+
+## Available Commands
+
+- `WDX:HTML to Markdown`: convert current opened editor HTML code snippet to Markdown and open a new tab. If HTML code snippets are selected in the current editor the HTML is converted to Markdown without opening a new tab.
+
+Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command palette, input `HTML to Markdonw`, then execute it.
 
 ## Extension Settings
 
@@ -55,17 +55,3 @@ Ensure that you've read through the extensions guidelines and follow the best pr
 
 * [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
 
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
