@@ -64,8 +64,6 @@ export function activate(context: vscode.ExtensionContext) {
 	const previewer = new Html2MarkdownPreviewer(context);
 
 	let disposableHTML2Markdown = vscode.commands.registerCommand('vscode-wdx-development-extension.html2markdown', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
 		previewer.showPreviewer();
 	});
 

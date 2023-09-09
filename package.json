@@ -43,6 +43,9 @@
       ]
     }
   },
+  "extensionDependencies": [
+    "mechatroner.rainbow-csv"
+  ],
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
