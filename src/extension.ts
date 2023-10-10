@@ -79,6 +79,8 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
   });
+
+  // "The only purpose to add the entries to context.subscriptions is to guarantee their disposal during extension deactivation" ~ Rainbow CSV
   context.subscriptions.push(disposable);
 
   // https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample
