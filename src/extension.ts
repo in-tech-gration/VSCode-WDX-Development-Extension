@@ -109,6 +109,8 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(disposableContext);
 
+  // MARKDOWN-to-HTML (Work in progress...)
+
   // HTML-to-MARKDOWN
   const previewer = new Html2MarkdownPreviewer(context);
 
