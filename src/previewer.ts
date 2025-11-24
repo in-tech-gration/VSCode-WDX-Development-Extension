@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-// @ts-ignore
 import TurndownService from 'turndown';
 
 import { log } from './logger';
@@ -12,7 +11,7 @@ export class Html2MarkdownPreviewer {
     constructor(context: vscode.ExtensionContext) {
         this._context = context;
         this.turndown = new TurndownService();
-        log('Html2MarkdownPreviewer is created.');
+        // log('Html2MarkdownPreviewer is created.');
     }
 
     public async showPreviewer() {
