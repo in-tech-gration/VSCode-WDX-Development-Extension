@@ -26,6 +26,10 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 
 ## Release Notes
 
+### 0.1.5 (08/12/2025)
+
+Added DeepL translation usage status bar
+
 ### 0.1.4 (08/12/2025)
 
 Added DeepL translation of selected text
