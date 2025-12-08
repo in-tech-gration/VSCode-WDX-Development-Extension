@@ -122,6 +122,24 @@ export function activate(context: vscode.ExtensionContext) {
 
   // USER FOR: Custom Status Bar Button:
   // enableStatusBarItem(context);
+  const cmd = vscode.commands.registerCommand(
+    "uppercase-md.toUppercase",
+    () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        return;
+      };
+
+      editor.edit(editBuilder => {
+        for (const sel of editor.selections) {
+          const text = editor.document.getText(sel);
+          editBuilder.replace(sel, text.toUpperCase());
+        }
+      });
+    }
+  );
+
+  context.subscriptions.push(cmd);
 
 }
 

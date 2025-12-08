@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/in-tech-gration/VSCode-WDX-Development-Extension"
   },
-  "version": "0.1.1",
+  "version": "0.1.2",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -19,6 +19,10 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
+      {
+        "command": "uppercase-md.toUppercase",
+        "title": "To Uppercase"
+      },
       {
         "command": "vscode-wdx-development-extension.html2markdown",
         "title": "WDX:HTML to Markdown"
