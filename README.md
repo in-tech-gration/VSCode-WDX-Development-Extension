@@ -12,6 +12,10 @@
 
 Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command palette, input `HTML to Markdown`, then execute it.
 
+- `DeepL:Translate (en->el)`: Translate selected text from English to Greek.
+
+- `LLM:Summarize`: Summarize text using Ollama (llama3.1).
+
 ## Extension Settings
 
 ## Development
@@ -21,6 +25,18 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
   Install: `code --install-extension vscode-wdx-development-extension-0.1.1.vsix`
 
 ## Release Notes
+
+### 0.1.4 (08/12/2025)
+
+Added DeepL translation of selected text
+
+### 0.1.3 (08/12/2025)
+
+Added LLM summarization of selected text via Ollama
+
+### 0.1.2 (08/12/2025)
+
+Added boilerplate for simple text selection manipulation (toUppercase)
 
 ### 0.1.1
 
