@@ -2,6 +2,7 @@ import * as vscode from 'vscode'; // VSCode Extensibility API
 
 import { Html2MarkdownPreviewer } from './previewer';
 import ollama from 'ollama';
+import * as deepl from 'deepl-node';
 
 // USED FOR: Custom Status Bar Button: https://github.dev/microsoft/vscode-extension-samples/tree/main/statusbar-sample
 function enableStatusBarItem(context: vscode.ExtensionContext) {
@@ -121,8 +122,48 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(disposableHTML2Markdown);
 
+  // DeepL
+  const deepL = vscode.commands.registerCommand(
+    "deepl-md.translate",
+    async () => {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        return;
+      };
+
+      const selections = editor.selections;
+
+      // Retrieve API key from SecretStorage
+      const apiKey = await context.secrets.get('deeplApiKey') || await promptForDeepLApiKey(context);
+      if (!apiKey) {
+        return;
+      };
+
+      const results = await Promise.all(
+        selections.map(async sel => {
+          const text = editor.document.getText(sel);
+          const authKey = apiKey;
+          const deeplClient = new deepl.DeepLClient(authKey);
+          const result = await deeplClient.translateText(text, null, 'el');
+          return { sel, processed: result.text };
+        })
+      );
+
+      editor.edit(editBuilder => {
+        for (const r of results) {
+          editBuilder.replace(r.sel, r.processed);
+        }
+      });
+
+    }
+  );
+
+  context.subscriptions.push(deepL);
+
+
   // USER FOR: Custom Status Bar Button:
   // enableStatusBarItem(context);
+  // LLM:
   const cmd = vscode.commands.registerCommand(
     "llm-md.summarize",
     async () => {
@@ -168,6 +209,21 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(cmd);
 
+}
+
+// Prompt user for API key and store in SecretStorage
+async function promptForDeepLApiKey(context: vscode.ExtensionContext, force = false) {
+  const apiKey = await vscode.window.showInputBox({
+    prompt: 'Enter your DeepL API Key',
+    ignoreFocusOut: true,
+    password: true,
+  });
+  if (!apiKey) {
+    return null;
+  };
+  await context.secrets.store('deeplApiKey', apiKey);
+  vscode.window.showInformationMessage('DeepL API Key saved securely!');
+  return apiKey;
 }
 
 // This method is called when your extension is deactivated
