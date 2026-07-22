@@ -73,7 +73,7 @@ export function registerDeepLCommand(context: vscode.ExtensionContext) {
   // Load cached usage from secret storage
   updateStatusBarFromCache(context);
 
-  // >> DeepL <<
+  // >> DeepL: en->el <<
   const deepL = vscode.commands.registerCommand(
     "deepl-md.translate",
     async () => {
@@ -117,9 +117,9 @@ export function registerDeepLCommand(context: vscode.ExtensionContext) {
 
   // TODO: Deepl : el->en
 
-  // >> DeepL <<
+  // >> DeepL: en->de <<
   const deepL_de2en = vscode.commands.registerCommand(
-    "deepl-md.translate",
+    "deepl-md.translate-de2en",
     async (name: string) => {
 
       vscode.window.showInformationMessage(`Hello, ${name}!`);
