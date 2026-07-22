@@ -13,6 +13,7 @@
 Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command palette, input `HTML to Markdown`, then execute it.
 
 - `DeepL:Translate (en->el)`: Translate selected text from English to Greek.
+- `DeepL:Translate (de->en)`: Translate selected text from German to English.
 
 - `LLM:Summarize`: Summarize text using Ollama (llama3.1).
 
@@ -25,6 +26,10 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
   Install: `code --install-extension vscode-wdx-development-extension-0.1.1.vsix`
 
 ## Release Notes
+
+### 0.1.6 (23/07/2026)
+
+Added DeepL translation of selected text: `de -> en`
 
 ### 0.1.5 (08/12/2025)
 

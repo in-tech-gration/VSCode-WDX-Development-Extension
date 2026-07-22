@@ -143,9 +143,7 @@ export function registerDeepLCommand(context: vscode.ExtensionContext) {
       const results = await Promise.all(
         selections.map(async sel => {
           const text = editor.document.getText(sel);
-          // TODO: Deepl : el->en
-          const result = await deeplClient.translateText(text, 'en', 'de');
-          // const result = { text: "DEBUGGING" }
+          const result = await deeplClient.translateText(text, 'de', 'en-US');
           return { sel, processed: result.text };
         })
       );
