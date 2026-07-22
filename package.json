@@ -28,8 +28,16 @@
         "title": "DeepL:Translate (en->el)"
       },
       {
+        "command": "deepl-md.translate-el2en",
+        "title": "DeepL:Translate (el->en)"
+      },
+      {
         "command": "deepl-md.translate-de2en",
         "title": "DeepL:Translate (de->en)"
+      },
+      {
+        "command": "deepl-md.translate-en2de",
+        "title": "DeepL:Translate (en->de)"
       },
       {
         "command": "vscode-wdx-development-extension.html2markdown",

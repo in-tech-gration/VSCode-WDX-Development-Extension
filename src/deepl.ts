@@ -73,93 +73,77 @@ export function registerDeepLCommand(context: vscode.ExtensionContext) {
   // Load cached usage from secret storage
   updateStatusBarFromCache(context);
 
+  async function translateFromTo({ from, to }: { from: deepl.SourceLanguageCode, to: deepl.TargetLanguageCode }) {
+
+    // vscode.window.showInformationMessage(`Translating from ${from} to ${to}`);
+
+    const editor = vscode.window.activeTextEditor;
+
+    if (!editor) {
+      return;
+    };
+
+    const selections = editor.selections;
+
+    // Retrieve API key from SecretStorage
+    const apiKey = await context.secrets.get('deeplApiKey') || await promptForDeepLApiKey(context);
+
+    if (!apiKey) {
+      return;
+    };
+
+    const authKey = apiKey;
+    const deeplClient = new deepl.DeepLClient(authKey);
+
+    const results = await Promise.all(
+      selections.map(async sel => {
+        const text = editor.document.getText(sel);
+        const result = await deeplClient.translateText(text, from, to);
+        return { sel, processed: result.text };
+      })
+    );
+
+    editor.edit(editBuilder => {
+      for (const r of results) {
+        editBuilder.replace(r.sel, r.processed);
+      }
+    });
+
+    // Update status after translation
+    await updateDeepLUsageStatus(deeplClient, context);
+
+  }
+
   // >> DeepL: en->el <<
   const deepL = vscode.commands.registerCommand(
     "deepl-md.translate",
-    async () => {
-      const editor = vscode.window.activeTextEditor;
-      if (!editor) {
-        return;
-      };
-
-      const selections = editor.selections;
-
-      // Retrieve API key from SecretStorage
-      const apiKey = await context.secrets.get('deeplApiKey') || await promptForDeepLApiKey(context);
-      if (!apiKey) {
-        return;
-      };
-
-      const authKey = apiKey;
-      const deeplClient = new deepl.DeepLClient(authKey);
-
-      const results = await Promise.all(
-        selections.map(async sel => {
-          const text = editor.document.getText(sel);
-          const result = await deeplClient.translateText(text, 'en', 'el');
-          return { sel, processed: result.text };
-        })
-      );
-
-      editor.edit(editBuilder => {
-        for (const r of results) {
-          editBuilder.replace(r.sel, r.processed);
-        }
-      });
-
-      // Update status after translation
-      await updateDeepLUsageStatus(deeplClient, context);
-
-    }
+    async () => await translateFromTo({ from: "en", to: "el" })
   );
 
   context.subscriptions.push(deepL);
 
-  // TODO: Deepl : el->en
+  // >> DeepL: el->en <<
+  const deepL_el2en = vscode.commands.registerCommand(
+    "deepl-md.translate-el2en",
+    async () => await translateFromTo({ from: "el", to: "en-US" })
+  );
 
-  // >> DeepL: en->de <<
+  context.subscriptions.push(deepL_el2en);
+
+  // >> DeepL: de->en <<
   const deepL_de2en = vscode.commands.registerCommand(
     "deepl-md.translate-de2en",
-    async (name: string) => {
-
-      vscode.window.showInformationMessage(`Hello, ${name}!`);
-
-      const editor = vscode.window.activeTextEditor;
-      if (!editor) {
-        return;
-      };
-
-      const selections = editor.selections;
-
-      // Retrieve API key from SecretStorage
-      const apiKey = await context.secrets.get('deeplApiKey') || await promptForDeepLApiKey(context);
-      if (!apiKey) {
-        return;
-      };
-
-      const authKey = apiKey;
-      const deeplClient = new deepl.DeepLClient(authKey);
-
-      const results = await Promise.all(
-        selections.map(async sel => {
-          const text = editor.document.getText(sel);
-          const result = await deeplClient.translateText(text, 'de', 'en-US');
-          return { sel, processed: result.text };
-        })
-      );
-
-      editor.edit(editBuilder => {
-        for (const r of results) {
-          editBuilder.replace(r.sel, r.processed);
-        }
-      });
-
-      // Update status after translation
-      await updateDeepLUsageStatus(deeplClient, context);
-
-    }
+    async () => await translateFromTo({ from: "de", to: "en-US" })
   );
 
   context.subscriptions.push(deepL_de2en);
+
+  // >> DeepL: en->de <<
+  const deepL_en2de = vscode.commands.registerCommand(
+    "deepl-md.translate-en2de",
+    async () => await translateFromTo({ from: "en", to: "de" })
+  );
+
+  context.subscriptions.push(deepL_en2de);
 
 }

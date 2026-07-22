@@ -13,7 +13,9 @@
 Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command palette, input `HTML to Markdown`, then execute it.
 
 - `DeepL:Translate (en->el)`: Translate selected text from English to Greek.
+- `DeepL:Translate (el->en)`: Translate selected text from Greek to English.
 - `DeepL:Translate (de->en)`: Translate selected text from German to English.
+- `DeepL:Translate (en->de)`: Translate selected text from English to German.
 
 - `LLM:Summarize`: Summarize text using Ollama (llama3.1).
 
@@ -30,6 +32,9 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 ### 0.1.6 (23/07/2026)
 
 Added DeepL translation of selected text: `de -> en`
+Added DeepL translation of selected text: `en -> de`
+Added DeepL translation of selected text: `en -> el`
+Added DeepL translation of selected text: `el -> en`
 
 ### 0.1.5 (08/12/2025)
 
