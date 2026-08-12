@@ -44,10 +44,6 @@
         "title": "WDX:HTML to Markdown"
       },
       {
-        "command": "vscode-wdx-development-extension.helloWorld",
-        "title": "WDX:Hello World"
-      },
-      {
         "command": "vscode-wdx-development-extension.reverseWord",
         "title": "WDX:Reverse Word"
       },
