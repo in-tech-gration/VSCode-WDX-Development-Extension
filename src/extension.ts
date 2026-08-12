@@ -61,32 +61,6 @@ export function activate(context: vscode.ExtensionContext) {
 
   registerDeepLCommand(context);
 
-  // https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample
-  const reverseWordDisposable = vscode.commands.registerCommand('vscode-wdx-development-extension.reverseWord', function () {
-    // Get the active text editor
-    const editor = vscode.window.activeTextEditor;
-
-    if (editor) {
-      const document = editor.document;
-      const selection = editor.selection;
-
-      // Get the word within the selection
-      const word = document.getText(selection);
-      const reversed = word.split('').reverse().join('');
-      editor.edit(editBuilder => {
-        editBuilder.replace(selection, reversed);
-      });
-    }
-  });
-  context.subscriptions.push(reverseWordDisposable);
-
-  // https://github.com/mennan/vscode-contextmenu-sample/tree/master
-  const disposableContext = vscode.commands.registerCommand('vscode-wdx-development-extension.contextMenu', function () {
-    vscode.window.showInformationMessage('Hello World from Context!');
-  });
-
-  context.subscriptions.push(disposableContext);
-
   // MARKDOWN-to-HTML (Work in progress...)
 
   // HTML-to-MARKDOWN

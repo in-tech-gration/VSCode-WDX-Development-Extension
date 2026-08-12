@@ -42,14 +42,6 @@
       {
         "command": "vscode-wdx-development-extension.html2markdown",
         "title": "WDX:HTML to Markdown"
-      },
-      {
-        "command": "vscode-wdx-development-extension.reverseWord",
-        "title": "WDX:Reverse Word"
-      },
-      {
-        "command": "vscode-wdx-development-extension.contextMenu",
-        "title": "WDX:Context Menu"
       }
     ],
     "menus": {
