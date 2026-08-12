@@ -1,5 +1,8 @@
 import * as vscode from 'vscode'; // VSCode Extensibility API
 import * as deepl from 'deepl-node';
+import { promptForApiKey } from "./utils/utils";
+
+const API_KEY_NAME = "deeplApiKey";
 
 // >> DeepL << Load cached usage from SecretStorage
 async function updateStatusBarFromCache(context: vscode.ExtensionContext) {
@@ -24,21 +27,6 @@ function formatUsageText(usage: any) {
   return `$(symbol-string) DeepL: ${chars} chars`;
   // const docs = usage.document ? `${usage.document.count}/${usage.document.limit}` : '-';
   // return `DeepL: ${chars} chars | ${docs} docs`;
-}
-
-// >> DeepL << Prompt user for API key and store in SecretStorage
-async function promptForDeepLApiKey(context: vscode.ExtensionContext, force = false) {
-  const apiKey = await vscode.window.showInputBox({
-    prompt: 'Enter your DeepL API Key',
-    ignoreFocusOut: true,
-    password: true,
-  });
-  if (!apiKey) {
-    return null;
-  };
-  await context.secrets.store('deeplApiKey', apiKey);
-  vscode.window.showInformationMessage('DeepL API Key saved securely!');
-  return apiKey;
 }
 
 // >> DeepL << Update usage from API and cache it
@@ -86,7 +74,11 @@ export function registerDeepLCommand(context: vscode.ExtensionContext) {
     const selections = editor.selections;
 
     // Retrieve API key from SecretStorage
-    const apiKey = await context.secrets.get('deeplApiKey') || await promptForDeepLApiKey(context);
+    const apiKey = await context.secrets.get(API_KEY_NAME) || await promptForApiKey({
+      context,
+      key: API_KEY_NAME,
+      keyLabel: "DeepL API",
+    });
 
     if (!apiKey) {
       return;
