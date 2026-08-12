@@ -44,14 +44,7 @@
         "title": "WDX:HTML to Markdown"
       }
     ],
-    "menus": {
-      "explorer/context": [
-        {
-          "group": "navigation",
-          "command": "vscode-wdx-development-extension.contextMenu"
-        }
-      ]
-    }
+    "menus": {}
   },
   "extensionDependencies": [
     "mechatroner.rainbow-csv"
