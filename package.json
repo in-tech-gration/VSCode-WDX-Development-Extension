@@ -42,6 +42,10 @@
       {
         "command": "vscode-wdx-development-extension.html2markdown",
         "title": "WDX:HTML to Markdown"
+      },
+      {
+        "command": "vscode-wdx-development-extension.youtube",
+        "title": "WDX:Get YouTube Information from URL or ID"
       }
     ],
     "menus": {}

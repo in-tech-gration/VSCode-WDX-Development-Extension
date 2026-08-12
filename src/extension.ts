@@ -3,6 +3,7 @@ import * as vscode from 'vscode'; // VSCode Extensibility API
 import { Html2MarkdownPreviewer } from './previewer';
 import ollama from 'ollama';
 import { registerDeepLCommand } from './deepl';
+import registerYouTubeCommand from "./youtube";
 
 // USED FOR: Custom Status Bar Button: https://github.dev/microsoft/vscode-extension-samples/tree/main/statusbar-sample
 function enableStatusBarItem(context: vscode.ExtensionContext) {
@@ -59,7 +60,11 @@ export function activate(context: vscode.ExtensionContext) {
 
   console.log('Congratulations, your extension "vscode-wdx-development-extension" is now active!');
 
+  // DeepL
   registerDeepLCommand(context);
+
+  // YouTube
+  registerYouTubeCommand(context);
 
   // MARKDOWN-to-HTML (Work in progress...)
 
