@@ -29,6 +29,10 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 
 ## Release Notes
 
+### 0.1.7 (13/08/2026)
+
+Added YouTube information retrieval from URL or ID
+
 ### 0.1.6 (23/07/2026)
 
 Added DeepL translation of selected text: `de -> en`
