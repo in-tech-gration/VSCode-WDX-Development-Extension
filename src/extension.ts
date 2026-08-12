@@ -61,32 +61,6 @@ export function activate(context: vscode.ExtensionContext) {
 
   registerDeepLCommand(context);
 
-  // https://code.visualstudio.com/api/get-started/your-first-extension
-  const disposable = vscode.commands.registerCommand('vscode-wdx-development-extension.helloWorld', () => {
-    vscode.window.showInformationMessage('Hello World from VSCode-WDX-Development-Extension!');
-
-    // https://stackoverflow.com/a/53919833/4861760
-    if (vscode.workspace.workspaceFolders !== undefined) {
-      let wf = vscode.workspace.workspaceFolders[0].uri.path;
-      let f = vscode.workspace.workspaceFolders[0].uri.fsPath;
-      const message = `YOUR-EXTENSION: folder: ${wf} - ${f}`;
-      vscode.window.showInformationMessage(message);
-      if (vscode.window.activeTextEditor) {
-        const currentOpenFile = vscode.window.activeTextEditor.document.fileName;
-        vscode.window.showInformationMessage(currentOpenFile);
-      }
-    }
-    else {
-
-      const message = "YOUR-EXTENSION: Working folder not found, open a folder an try again";
-      vscode.window.showErrorMessage(message);
-    }
-
-  });
-
-  // "The only purpose to add the entries to context.subscriptions is to guarantee their disposal during extension deactivation" ~ Rainbow CSV
-  context.subscriptions.push(disposable);
-
   // https://github.com/microsoft/vscode-extension-samples/tree/main/document-editing-sample
   const reverseWordDisposable = vscode.commands.registerCommand('vscode-wdx-development-extension.reverseWord', function () {
     // Get the active text editor
