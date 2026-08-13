@@ -29,6 +29,10 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 
 ## Release Notes
 
+### 0.1.71 (14/08/2026)
+
+Format YouTube Duration to HH:MM:SS
+
 ### 0.1.7 (13/08/2026)
 
 Added YouTube information retrieval from URL or ID

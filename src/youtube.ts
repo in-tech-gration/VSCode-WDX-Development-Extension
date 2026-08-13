@@ -54,6 +54,25 @@ function formatDate(iso8601String: string) {
   return formattedDate;
 }
 
+function ytDurationToHHMMSS(duration: string) {
+
+  const regex = /PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/;
+  const matches = duration.match(regex);
+
+  if (!matches) {
+    return duration; // Return a default value if the format is invalid
+  }
+
+  const hours = parseInt(matches[1] || "0", 10);
+  const minutes = parseInt(matches[2] || "0", 10);
+  const seconds = parseInt(matches[3] || "0", 10);
+
+  // Format the output as HH:MM:SS
+  return [hours, minutes, seconds]
+    .map((unit) => String(unit).padStart(2, "0"))
+    .join(":");
+}
+
 const youTubeIdRegEx = /([a-z0-9_-]{11})/i;
 
 export default function registerYouTubeCommand(context: vscode.ExtensionContext) {
@@ -146,7 +165,7 @@ export default function registerYouTubeCommand(context: vscode.ExtensionContext)
 
             editor.edit(editBuilder => {
               editBuilder.replace(
-                selection, `${youTube}\n${ytTitle}\nDuration: ${ytDuration}\nChannel: ${ytChannelTitle}\nPublished at: ${formatDate(ytPublishedAt)}`);
+                selection, `${youTube}\n${ytTitle}\nDuration: ${ytDurationToHHMMSS(ytDuration)}\nChannel: ${ytChannelTitle}\nPublished at: ${formatDate(ytPublishedAt)}`);
             });
 
           });
