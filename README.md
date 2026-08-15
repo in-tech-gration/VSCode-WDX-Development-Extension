@@ -67,3 +67,9 @@ Added (experimental) Status Bar button
 ### 0.1.0
 
 Initial release
+
+---
+
+## Todo and Feature Requests
+
+  - Follow and implement the [Extension Bundling Guide](https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
