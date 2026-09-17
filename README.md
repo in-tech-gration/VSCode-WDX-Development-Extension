@@ -19,6 +19,9 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 
 - `LLM:Summarize`: Summarize text using Ollama (llama3.1).
 
+- `WDX:Base64 Encode`: Encode selected text using Base64.
+- `WDX:Base64 Decode`: Decode selected Base64 text.
+
 -`WDX:Get YouTube Information from URL or ID`. Select YouTube URL or Video ID and get video details and information, for example: select `https://www.youtube.com/watch?v=OaRq816CNhE` or `OaRq816CNhE`, open `VSCode Command Palette` and select `WDX:Get YouTube Information from URL or ID`. The following information is provided for the video:
   > 
 
@@ -40,6 +43,7 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 ### 0.1.72 (17/09/2026)
 
 Base64 Encode/Decode
+LLM Summarization progress indicator
 
 ### 0.1.71 (14/08/2026)
 

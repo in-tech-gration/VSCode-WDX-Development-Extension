@@ -3,7 +3,9 @@
 ## [0.1.72]
 
 - Add support for Base64 Encoding/Decoding
+- Add progress indicator for LLM summarization
 - Creating HTML2Markdown Module
+- Creating LLM Summarization Module
 
 ## [0.1.71]
 
