@@ -3,7 +3,9 @@ import ollama from 'ollama';
 import { registerDeepLCommand } from './deepl';
 import registerYouTubeCommand from "./youtube";
 import activateHTML2MarkdownExtension from "./html2markdown";
-import { activate as activateHighlightExtension } from './extensions/vscode-highlight/';
+import activateBase64Extension from "./base64";
+import activateLLMExtension from "./llm";
+// import { activate as activateHighlightExtension } from './extensions/vscode-highlight/';
 
 // USED FOR: Custom Status Bar Button: https://github.dev/microsoft/vscode-extension-samples/tree/main/statusbar-sample
 function enableStatusBarItem(context: vscode.ExtensionContext) {
@@ -67,60 +69,21 @@ export function activate(context: vscode.ExtensionContext) {
   registerYouTubeCommand(context);
 
   // VSCode Highlight Extension: https://github.com/fabiospampinato/vscode-highlight
-  activateHighlightExtension(context);
+  // activateHighlightExtension(context);
 
   // MARKDOWN-to-HTML (Work in progress...)
   
   // HTML-to-MARKDOWN
   activateHTML2MarkdownExtension(context);
 
+  // BASE64 ENCODING/DECODING
+  activateBase64Extension(context);
+
   // USER FOR: Custom Status Bar Button:
   // enableStatusBarItem(context);
+
   // LLM:
-  const cmd = vscode.commands.registerCommand(
-    "llm-md.summarize",
-    async () => {
-      const editor = vscode.window.activeTextEditor;
-      if (!editor) {
-        return;
-      };
-
-      // Async:
-      const selections = editor.selections;
-
-      const results = await Promise.all(
-        selections.map(async sel => {
-          const text = editor.document.getText(sel);
-          // const processed = await asyncProcess(text);
-          // https://github.com/ollama/ollama-js
-          const response = await ollama.chat({
-            model: 'llama3.1',
-            messages: [{
-              role: 'user',
-              content: 'Summarize the following text and strictly display only the summary. No other text or comments. Here is the text to be summarized: ' + text
-            }],
-          });
-          return { sel, processed: response.message.content };
-        })
-      );
-
-      editor.edit(editBuilder => {
-        for (const r of results) {
-          editBuilder.replace(r.sel, r.processed);
-        }
-      });
-
-      // Sync:
-      // editor.edit(editBuilder => {
-      //   for (const sel of editor.selections) {
-      //     const text = editor.document.getText(sel);
-      //     editBuilder.replace(sel, text.toUpperCase());
-      //   }
-      // });
-    }
-  );
-
-  context.subscriptions.push(cmd);
+  activateLLMExtension(context);
 
 }
 
