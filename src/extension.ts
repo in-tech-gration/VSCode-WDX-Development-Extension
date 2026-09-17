@@ -1,9 +1,9 @@
 import * as vscode from 'vscode'; // VSCode Extensibility API
-
-import { Html2MarkdownPreviewer } from './previewer';
 import ollama from 'ollama';
 import { registerDeepLCommand } from './deepl';
 import registerYouTubeCommand from "./youtube";
+import activateHTML2MarkdownExtension from "./html2markdown";
+import { activate as activateHighlightExtension } from './extensions/vscode-highlight/';
 
 // USED FOR: Custom Status Bar Button: https://github.dev/microsoft/vscode-extension-samples/tree/main/statusbar-sample
 function enableStatusBarItem(context: vscode.ExtensionContext) {
@@ -66,16 +66,13 @@ export function activate(context: vscode.ExtensionContext) {
   // YouTube
   registerYouTubeCommand(context);
 
+  // VSCode Highlight Extension: https://github.com/fabiospampinato/vscode-highlight
+  activateHighlightExtension(context);
+
   // MARKDOWN-to-HTML (Work in progress...)
-
+  
   // HTML-to-MARKDOWN
-  const previewer = new Html2MarkdownPreviewer(context);
-
-  let disposableHTML2Markdown = vscode.commands.registerCommand('vscode-wdx-development-extension.html2markdown', () => {
-    previewer.showPreviewer();
-  });
-
-  context.subscriptions.push(disposableHTML2Markdown);
+  activateHTML2MarkdownExtension(context);
 
   // USER FOR: Custom Status Bar Button:
   // enableStatusBarItem(context);
