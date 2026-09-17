@@ -22,7 +22,7 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 - `WDX:Base64 Encode`: Encode selected text using Base64.
 - `WDX:Base64 Decode`: Decode selected Base64 text.
 
--`WDX:Get YouTube Information from URL or ID`. Select YouTube URL or Video ID and get video details and information, for example: select `https://www.youtube.com/watch?v=OaRq816CNhE` or `OaRq816CNhE`, open `VSCode Command Palette` and select `WDX:Get YouTube Information from URL or ID`. The following information is provided for the video:
+- `WDX:Get YouTube Information from URL or ID`. Select YouTube URL or Video ID and get video details and information, for example: select `https://www.youtube.com/watch?v=OaRq816CNhE` or `OaRq816CNhE`, open `VSCode Command Palette` and select `WDX:Get YouTube Information from URL or ID`. The following information is provided for the video:
   > 
 
   **The Social Model and Mike Oliver** _(Title)_
