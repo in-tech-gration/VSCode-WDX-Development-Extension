@@ -13,8 +13,8 @@ export default function activateLLMExtension(context: vscode.ExtensionContext) {
       // https://github.com/microsoft/vscode-extension-samples/blob/main/progress-sample/src/extension.ts
       vscode.window.withProgress(
         {
-          location: vscode.ProgressLocation.Window,
-          // OR:    vscode.ProgressLocation.Notification
+          // location: vscode.ProgressLocation.Window,
+          location: vscode.ProgressLocation.Notification,
           title: 'LLM Summarization'
         },
         async progress => {
