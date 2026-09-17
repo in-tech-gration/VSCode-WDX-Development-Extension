@@ -49,11 +49,11 @@
       },
       {
         "command": "vscode-wdx-development-extension.base64Encode",
-        "title": "Base64 Encode"
+        "title": "WDX:Base64 Encode"
       },
       {
         "command": "vscode-wdx-development-extension.base64Decode",
-        "title": "Base64 Decode"
+        "title": "WDX:Base64 Decode"
       }
     ],
     "menus": {}
@@ -67,7 +67,9 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "dev:package": "vsce package",
+    "dev:install": "code --install-extension vscode-wdx-development-extension-0.1.72.vsix"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.1",
