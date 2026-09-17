@@ -1,5 +1,4 @@
 import * as vscode from 'vscode'; // VSCode Extensibility API
-import ollama from 'ollama';
 import { registerDeepLCommand } from './deepl';
 import registerYouTubeCommand from "./youtube";
 import activateHTML2MarkdownExtension from "./html2markdown";
