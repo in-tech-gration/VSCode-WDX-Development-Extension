@@ -19,6 +19,14 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 
 - `LLM:Summarize`: Summarize text using Ollama (llama3.1).
 
+-`WDX:Get YouTube Information from URL or ID`. Select YouTube URL or Video ID and get video details and information, for example: select `https://www.youtube.com/watch?v=OaRq816CNhE` or `OaRq816CNhE`, open `VSCode Command Palette` and select `WDX:Get YouTube Information from URL or ID`. The following information is provided for the video:
+  > 
+
+  **The Social Model and Mike Oliver** _(Title)_
+  **Duration**: 00:58:05
+  **Channel**: Stark
+  **Published at**: 10/02/2022
+
 ## Extension Settings
 
 ## Development
@@ -28,6 +36,10 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
   Install: `code --install-extension vscode-wdx-development-extension-0.1.1.vsix`
 
 ## Release Notes
+
+### 0.1.72 (17/09/2026)
+
+Base64 Encode/Decode
 
 ### 0.1.71 (14/08/2026)
 
