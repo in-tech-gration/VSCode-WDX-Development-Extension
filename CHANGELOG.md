@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [0.1.72]
+
+- Add support for Base64 Encoding/Decoding
+- Creating HTML2Markdown Module
+
+## [0.1.71]
+
+- Maintenance
+
 ## [0.1.7]
 
 - Add YouTube Information Retrieval from URL or Video ID
