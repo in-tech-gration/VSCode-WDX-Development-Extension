@@ -1,3 +1,4 @@
+// Based on: https://github.com/adamhartford/vscode-base64
 import * as vscode from 'vscode';
 import Window = vscode.window;
 import Range = vscode.Range;
