@@ -40,49 +40,7 @@ Press `F1` or `Ctrl + Shift + p` or `Cmd + Shift + p`(macOS) to open command pal
 
 ## Release Notes
 
-### 0.1.72 (17/09/2026)
-
-Base64 Encode/Decode
-LLM Summarization progress indicator
-
-### 0.1.71 (14/08/2026)
-
-Format YouTube Duration to HH:MM:SS
-
-### 0.1.7 (13/08/2026)
-
-Added YouTube information retrieval from URL or ID
-
-### 0.1.6 (23/07/2026)
-
-Added DeepL translation of selected text: `de -> en`
-Added DeepL translation of selected text: `en -> de`
-Added DeepL translation of selected text: `en -> el`
-Added DeepL translation of selected text: `el -> en`
-
-### 0.1.5 (08/12/2025)
-
-Added DeepL translation usage status bar
-
-### 0.1.4 (08/12/2025)
-
-Added DeepL translation of selected text
-
-### 0.1.3 (08/12/2025)
-
-Added LLM summarization of selected text via Ollama
-
-### 0.1.2 (08/12/2025)
-
-Added boilerplate for simple text selection manipulation (toUppercase)
-
-### 0.1.1
-
-Added (experimental) Status Bar button
-
-### 0.1.0
-
-Initial release
+Check: [CHANGELOG](./CHANGELOG.md)
 
 ---
 
