@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [0.1.73]
+
+- Fix: Deprecated `new Buffer` syntax for Base64 Encoding/Decoding
+
 ## [0.1.72]
 
 - Add support for Base64 Encoding/Decoding
