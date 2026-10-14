@@ -10,7 +10,8 @@ function base64Encode(e: TextEditor, d: TextDocument, sel: Selection[]) {
   e.edit(function (edit) {
     sel.forEach(function (s) {
       let txt: string = d.getText(new Range(s.start, s.end));
-      let b: Buffer = new Buffer(txt);
+      // let b: Buffer = new Buffer(txt); // DEPRECATED
+      let b: Buffer = Buffer.from(txt);
       edit.replace(s, b.toString('base64'));
     });
   });
@@ -20,7 +21,8 @@ function base64Decode(e: TextEditor, d: TextDocument, sel: Selection[]) {
   e.edit(function (edit) {
     sel.forEach(function (s) {
       let txt: string = d.getText(new Range(s.start, s.end));
-      let b: Buffer = new Buffer(txt, 'base64');
+      // let b: Buffer = new Buffer(txt, 'base64'); // DEPRECATED
+      let b: Buffer = Buffer.from(txt, 'base64');
       edit.replace(s, b.toString());
     });
   });
