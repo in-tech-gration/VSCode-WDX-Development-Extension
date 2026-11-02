@@ -5,8 +5,6 @@ import https from "node:https";
 const API_KEY_NAME = "youtubeApiKey";
 
 /**
- * @param {string}
- * @return {Array}
  * The captured groups are:
   - protocol
   - subdomain
