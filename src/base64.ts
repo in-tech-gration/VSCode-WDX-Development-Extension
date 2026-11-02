@@ -37,7 +37,7 @@ export default function activateBase64Extension(context: vscode.ExtensionContext
 
   let encode = vscode.commands.registerCommand('vscode-wdx-development-extension.base64Encode', () => {
     let e = Window.activeTextEditor;
-    if (!e){
+    if (!e) {
       return;
     }
     let d = e.document;
@@ -48,7 +48,7 @@ export default function activateBase64Extension(context: vscode.ExtensionContext
 
   let decode = vscode.commands.registerCommand('vscode-wdx-development-extension.base64Decode', () => {
     let e = Window.activeTextEditor;
-    if (!e){
+    if (!e) {
       return;
     }
     let d = e.document;
